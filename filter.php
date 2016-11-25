@@ -58,8 +58,6 @@ defined('MOODLE_INTERNAL') || die();
 // code: '<math ... </math>'                                                    //
 /* ---------------------------------------------------------------------------- */
 
-
-
 class filter_wiris extends moodle_text_filter {
 
     public function filter($text, array $options = array()) {
