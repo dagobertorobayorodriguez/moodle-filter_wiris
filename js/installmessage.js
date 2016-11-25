@@ -1,6 +1,6 @@
-function get_firstchild(n){
+function get_firstchild(n) {
     x = n.firstChild;
-    while (x.nodeType != 1){
+    while (x.nodeType != 1) {
         x = x.nextSibling;
     }
     return x;
