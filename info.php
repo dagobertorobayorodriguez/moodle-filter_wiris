@@ -24,8 +24,8 @@
  */
 
 require_once('../../config.php');
-require_once('../../lib/editor/tinymce/lib.php');
-require_once('classes/pluginwrapper.php');
+require_once($CFG->dirroot.'/lib/editor/tinymce/lib.php');
+require_once($CFG->dirroot.'/filter/wiris/classes/pluginwrapper.php');
 function wrs_assert($condition, $reporttext, $solutionlink) {
     if ($condition) {
         return $reporttext;
@@ -54,7 +54,6 @@ function wrs_createtablerow($testname, $reporttext, $solutionlink, $condition) {
 // Used to find the position of WIRIS plugin (Starting from Moodle 2.4 it changes the folder used to install the plugins).
 $tinyeditor = new tinymce_texteditor();
 $tinyversion = $tinyeditor->version;
-
 
 $wirispluginbase = '../../lib/editor/tinymce/plugins/tiny_mce_wiris/tinymce';
 $wirispluginbasestring = 'TinyMCE';
@@ -92,7 +91,6 @@ $output .= html_writer::start_tag('th', array('class' => 'wrs_plugin wrs_filter'
 $output .= "Status";
 $output .= html_writer::end_tag('th');
 $output .= html_writer::end_tag('tr');
-
 
 $output .= html_writer::start_tag('tr', array('class' => 'wrs_plugin wrs_filter'));
 echo $output;
@@ -140,7 +138,6 @@ $solutionlink = 'http://www.wiris.com/plugins/moodle/download';
 echo wrs_createtablerow($testname, $reporttext, $solutionlink, $condition);
 $output .= html_writer::end_tag('tr');
 
-
 $output .= html_writer::start_tag('tr', array('class' => 'wrs_plugin wrs_filter'));
 echo $output;
 $output = '';
@@ -148,9 +145,9 @@ $testname = get_string('test4', 'filter_wiris');
 $solutionlink = 'http://www.wiris.com/plugins/docs/moodle/moodle-2.0';
 $filterenabled = filter_is_enabled('filter/wiris');
 if ($filterenabled) {
-        $reporttext = get_string('report4.1', 'filter_wiris');
+    $reporttext = get_string('report4.1', 'filter_wiris');
 } else {
-        $reporttext = get_string('report4.2', 'filter_wiris');
+    $reporttext = get_string('report4.2', 'filter_wiris');
 }
 echo wrs_createtablerow($testname, $reporttext, $solutionlink, $filterenabled);
 $output .= html_writer::end_tag('tr');
