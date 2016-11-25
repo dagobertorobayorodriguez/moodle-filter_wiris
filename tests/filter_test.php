@@ -27,8 +27,8 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once($CFG->dirroot . '/filter/wiris/filter.php');
 
-class filter_wiris_filter_testcase extends advanced_testcase
-{   protected $filter;
+class filter_wiris_filter_testcase extends advanced_testcase {   
+    protected $filter;
     protected $safexml;
     protected $xml;
     protected $image;
